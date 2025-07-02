@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="Cart.css">
+</head>
+
+<body>
+    <div class="one">
+        <div class="billing">
+            <h1>Billing Address</h1>
+
+
+            <form>
+                <div class="billing1">
+                    <label for="fname">First Name:</label><br>
+                    <input type="text" id="fname" name="fname" value="">
+                    <span class="error" id="firstnameError"></span>
+                    <script>
+                        function myFunction() {
+                            let fname = document.getElementById('fname').value;
+                            let fnamePattern = /^[a-zA-Z\s]*$/;
+                            if (fname === "") {
+                                document.getElementById('firstnameError').innerHTML = "fname is required!";
+                            }
+                            else if (!fnamePattern.test(fname)) {
+                                document.getElementById('firstnameError').innerHTML = "Please enter a valid fname!";
+                            } else {
+                                document.getElementById('firstnameError').innerHTML = "";
+                            }
+
+                            let lname = document.getElementById('lname').value;
+                            let lnamePattern = /^[a-zA-Z\s]*$/;
+                            if (lname === "") {
+                                document.getElementById('lastnameError').innerHTML = "lname is required!";
+                            }
+                            else if (!lnamePattern.test(lname)) {
+                                document.getElementById('lastnameError').innerHTML = "Please enter a valid lname!";
+                            } else {
+                                document.getElementById('lastnameError').innerHTML = "";
+                            }
+
+                            let uname = document.getElementById('uname').value;
+                            let unamePattern = /^[a-zA-Z@_0-9\s]*$/;
+                            if (uname === "") {
+                                document.getElementById('usernameError').innerHTML = "uname is required!";
+                            }
+                            else if (!unamePattern.test(uname)) {
+                                document.getElementById('usernameError').innerHTML = "Please enter a valid uname!";
+                            } else {
+                                document.getElementById('usernameError').innerHTML = "";
+                            }
+
+                            let email = document.getElementById('email').value;
+                            let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                            if (email === "") {
+                                document.getElementById('emailError').innerHTML = "email is required!";
+                            }
+                            else if (!emailPattern.test(email)) {
+                                document.getElementById('emailError').innerHTML = "Please enter a valid Email!";
+                            } else {
+                                document.getElementById('emailError').innerHTML = "";
+                            }
+
+                            let address = document.getElementById('address').value;
+                            let addressPattern = /^\d{1,5}\/?\d{0,5}\s[A-Za-z0-9\s,.-]+(?:,\s[A-Za-z\s]+)+(?:-\d{1,5})?\.$/;
+                            if (address === "") {
+                                document.getElementById('addressError').innerHTML = "address is required!";
+                            }
+                            else if (!addressPattern.test(address)) {
+                                document.getElementById('addressError').innerHTML = "Please enter a valid address!";
+                            } else {
+                                document.getElementById('addressError').innerHTML = "";
+                            }
+
+                            let zip = document.getElementById('zip').value;
+                            let zipPattern = /^[0-9\s]*$/;
+                            if (zip === "") {
+                                document.getElementById('zipError').innerHTML = "zip is required!";
+                            }
+                            else if (!zipPattern.test(zip)) {
+                                document.getElementById('zipError').innerHTML = "Please enter a valid zip code!";
+                            }
+                            else {
+                                document.getElementById('zipError').innerHTML = "";
+                            }
+
+                            let name = document.getElementById('name').value;
+                            let namePattern = /^[a-zA-Z\s]*$/;
+                            if (name === "") {
+                                document.getElementById('cardnameError').innerHTML = "name is required!";
+                            }
+                            else if (!namePattern.test(name)) {
+                                document.getElementById('cardnameError').innerHTML = "Please enter a valid name!";
+                            } else {
+                                document.getElementById('cardnameError').innerHTML = "";
+                            }
+
+                            let expiration = document.getElementById('expiration').value;
+                            let expirationPattern = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
+                            if (expiration === "") {
+                                document.getElementById('expirationError').innerHTML = "this is required field!";
+                            }
+                            else if (!expirationPattern.test(expiration)) {
+                                document.getElementById('expirationError').innerHTML = "Please enter a valid expiration date!";
+                            }
+                            else {
+                                document.getElementById('expirationError').innerHTML = "";
+                            }
+
+                            let cardnum = document.getElementById('card no.').value;
+                            let cardnumPattern = /^[0-9]{12}(?:[0-9]{1})?$/;
+                            if (cardnum === "") {
+                                document.getElementById('cardnumberError').innerHTML = "this is required field!";
+                            }
+                            else if (!cardnumPattern.test(cardnum)) {
+                                document.getElementById('cardnumberError').innerHTML = "Please enter a valid 12-digit card number!";
+                            }
+                            else {
+                                document.getElementById('cardnumberError').innerHTML = "";
+                            }
+
+                            let CVV = document.getElementById('CVV').value;
+                            let CVVPattern =/^[0-9]{3}$/;
+                            if (CVV === "") {
+                                document.getElementById('CVVError').innerHTML = "this is required field!";
+                            }
+                            else if (!CVVPattern.test(CVV)) {
+                                document.getElementById('CVVError').innerHTML = "Please enter a valid CVV number!";
+                            }
+                            else {
+                                document.getElementById('CVVError').innerHTML = "";
+                            }
+                        }
+                    </script>
+                    <br><br>
+                </div>
+                <div class="billing2">
+                    <label for="lname">Last Name:</label><br>
+                    <input type="text" id="lname" name="lname" value="">
+                    <span class="error" id="lastnameError"></span>
+                    <br><br>
+                </div>
+
+                <label for="uname">Username:</label><br>
+                <input type="text" id="uname" name="uname" value="">
+                <span class="error" id="usernameError"></span>
+                <br><br>
+
+                <label for="email">Email (optional):</label><br>
+                <input type="email" id="email" name="email" value="">
+                <span class="error" id="emailError"></span>
+                <br><br>
+
+                <label for="address">Address:</label><br>
+                <input type="text" id="address" name="address" value="">
+                <span class="error" id="addressError"></span>
+                <br><br>
+
+                <label for="address2">Address 2 (optional):</label><br>
+                <input type="text" id="address2" name="address2" value="">
+                <br><br>
+                <div class="billing3">
+                    <label for="country">Country:</label><br>
+                    <select id="country" name="country">
+                        <option value="India">India</option>
+                        <option value="Dubai">Dubai</option>
+                        <option value="Italy">Italy</option>
+                        <option value="Europe">Europe</option>
+                    </select><br><br>
+                </div>
+                <div class="billing4">
+                    <label for="state">State:</label><br>
+                    <select id="state" name="state">
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Delhi">Delhi</option>
+                    </select><br><br>
+                </div>
+                <div class="billing5">
+                    <label for="zip">ZIP Code:</label><br>
+                    <input type="text" id="zip" name="zip" value="">
+                    <span class="error" id="zipError"></span>
+                    <br><br>
+                </div>
+
+            </form>
+        </div><br>
+        <div style="border-bottom: 1px solid #ccc; width: 50%;"></div>
+        <br>
+        <div class="class2 ">
+            <form action="/action_page.php">
+                <input type="checkbox" id="input" name="input" value="shipping address is same as my billing address">
+                <label for="input1"> shipping address is same as my billing address</label><br>
+                <input type="checkbox" id="input" name="input" value="save this information for next time">
+                <label for="input2"> save this information for next time</label><br>
+                <p id="text" style=" color:red; display: None;"> Select atleast one option!</p>
+
+                <script>
+                    function myFunction1() {
+                        var checkBox = document.getElementsByName("input");
+                        var text = document.getElementById("text");
+                        let go = false;
+                        for (i = 0; i < checkBox.length; i++) {
+                            console.log(i);
+                            if (checkBox[i].checked == true) {
+                                go = true;
+                            }
+                        }
+                        console.log(go)
+                        if (go) {
+                            text.style.display = "none";
+                        } else {
+                            text.style.display = "block";
+                        }
+                    }
+                </script>
+
+            </form>
+        </div>
+        <div style="border-bottom: 1px solid #ccc; width: 50%;"></div>
+        <div class="payment ">
+
+            <form action="/action_page.php" style="display:default;">
+                  <h1>payment</h1>
+                <br><br>
+                <input type="radio" id="debit card" name="card" value="Debit card" checked >
+                  <label for="debit card">debit card</label><br>
+                  <input type="radio" id="credit card" name="card" value="Credit card">
+                  <label for="credit card">credit card</label><br>
+                  <input type="radio" id="upi" name="card" value="UPI">
+                  <label for="upi">UPI</label><br><br>
+            </form>
+            <form>
+                <div class="payment1 ">
+
+
+                    <label for="name ">Name on card:</label><br>
+                    <input type="name" id="name" name="name" value="">
+                    <span class="error" id="cardnameError"></span><br>
+                </div>
+                <div class="payment2 ">
+
+
+                    <label for="card no.">credit card number:</label><br>
+                    <input type="text" id="card no." name="card no." value="">
+                    <span class="error" id="cardnumberError"></span><br>
+                </div><br>
+                <div class="payment3 ">
+                    <label for="expiration">expiration:</label><br>
+                    <input type="text" id="expiration" name="expiration" value="">
+                    <span class="error" id="expirationError"></span><br><br>
+                </div><br>
+                <div class="payment4 ">
+                    <label for="CVV">CVV(Card Verification Value):</label><br>
+                    <input type="text" id="CVV" name="CVV" value="">
+                    <span class="error" id="CVVError"></span><br>
+                </div>
+            </form>
+            <button id="verify input" onclick="myFunction(); myFunction1();"> verify input</button><br><br>
+            <div style="border-bottom: 1px solid #ccc; width: 50%;"></div>
+            <br>
+            <button id="button1"> continue to checkout</button>
+        </div>
+    </div>
+    <div class="two">
+        <h1>Your Cart</h1>
+        <div class="cart-header">
+        </div>
+
+        <div class="item">
+            <div>
+                <strong>Product name</strong><br>
+                <small>Brief description</small>
+            </div>
+            <div>$12</div>
+        </div>
+
+        <div class="item">
+            <div>
+                <strong>Second product</strong><br>
+                <small>Brief description</small>
+            </div>
+            <div>$8</div>
+        </div>
+
+        <div class="item">
+            <div>
+                <strong>Third item</strong><br>
+                <small>Brief description</small>
+            </div>
+            <div>$5</div>
+        </div>
+        <br><br>
+        <form>
+            <input type="text" id="textbox" placeholder="promo code"><button id="button">Reedem</button>
+        </form>
+    </div>
+    </div>
+    </div>
+</body>
+
+</html>
