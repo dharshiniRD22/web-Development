@@ -1,0 +1,49 @@
+#formBasicinput{
+    margin-top: 100px;
+    margin-left: 50px;
+}
+#container{
+    background-color: darkcyan;
+    height: 650px;
+    width: 1000px;
+    margin-top: 65px;
+}
+#button{
+    background-color: rgb(236, 146, 48);
+    color: rgb(246, 247, 247);
+    width: 70px;
+}
+.li{
+    width: 600px;
+    min-height: 10px;
+    padding: 5px;
+    margin-top: 70px;
+    text-align: left;
+    background-color: #f8f9fa;
+    margin: 1em 3em; 
+    padding: 0.2em;
+    border-radius:6px;
+}
+.edit{
+    background-color: rgb(2, 93, 115);
+}
+.delete{
+    background-color: rgb(192, 9, 9);
+}
+.save{
+    background-color: rgb(64, 122, 6);
+}
+.h1{
+    color: white;
+    font-size: 80px;
+}
+.input{
+    margin-left: 100px;
+}
+.add{
+    margin-right: 130px;
+}
+.ul{
+    list-style-type:None;
+    margin-left: 65px;
+}
