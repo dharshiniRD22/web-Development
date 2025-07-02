@@ -1,0 +1,105 @@
+import { useState } from 'react';
+import { Container, Row } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import React from 'react';
+
+function BasicExample() {
+    const [input, setinput] = useState({ Fname:"", Lname:"",phone:"", address:"" });
+    const [error, setError] = useState({});
+    const validateForm = () => {
+        let error = {};
+    if (!input.Fname.trim()) {
+        error.Fname = "FName is required*";
+      }
+      else if (!/^[A-Za-z]+$/.test(input.Fname))
+      {
+        error.Fname = "enter a valid name";
+      }
+  
+      if (!input.Lname.trim()) {
+        error.Lname = "Lname is required*";
+      }
+      else if (!/^[A-Za-z]+$/.test(input.Lname))
+      {
+        error.Lname = "enter a valid name";
+      }
+
+      if (!input.phone.trim()) {
+        error.phone = "phone number is required*";
+      }
+      else if (!/^\d{10}$/.test(input.phone))
+        {
+          error.phone = "enter a valid phone number";
+        }
+  
+      if (!input.address.trim()) {
+        error.address = "address is required*";
+      }
+      else if (! /^\d{1,5}\/?\d{0,5}\s[A-Za-z0-9\s,.-]+(?:,\s[A-Za-z\s]+)+(?:-\d{1,5})?\.$/.test(input.address))
+        {
+          error.address = "enter a valid address ";
+        }
+      return error;
+    };
+    
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        const validationErrors = validateForm();
+        setError(validationErrors);
+    
+      };
+    
+      const handleChange = (e) => {
+        setinput({ ...input, [e.target.name]: e.target.value });
+      };
+  
+return (
+    <Container className='container' >
+        <h1><center> Enter the details </center></h1>
+        <Form  onChange={handleChange} onSubmit={handleSubmit}>
+            <Row className="mb-4">
+                <Form.Group as={Col} controlId="formBasicFname" >
+                    <Form.Label>First Name:</Form.Label>
+                    <Form.Control name="Fname" type="text" placeholder="Enter your First Name" />
+                    <Form.Text className="text-danger">{error.Fname}</Form.Text>
+                </Form.Group>
+
+                <Form.Group as={Col} controlId="formBasicLname">
+                    <Form.Label>Last Name:</Form.Label>
+                    <Form.Control name="Lname" type="text" placeholder="Enter your Last Name" />
+                    <Form.Text className="text-danger">{error.Lname}</Form.Text>
+                </Form.Group></Row>
+
+            <Row className="mb-4">
+                <Form.Group as={Col} controlId="formBasicphone">
+                    <Form.Label>Phone number:</Form.Label>
+                    <Form.Control name="phone" type="phone" placeholder="Enter your Phone no." />
+                    <Form.Text className="text-danger">{error.phone}</Form.Text>
+                </Form.Group>
+
+                <Form.Group as={Col} controlId="formBasicFname">
+                    <Form.Label name="select">Select gender:</Form.Label>
+                    <Form.Select aria-label="Default select example">
+                        <option value="1">Female</option>
+                        <option value="2">Male</option>
+                        <option value="3">transgender</option>
+                    </Form.Select>
+                </Form.Group></Row>
+
+            <Form.Group className="mb-3" controlId="formBasicAddress">
+                <Form.Label>Address:</Form.Label>
+                <Form.Control as="textarea" rows={4} name="address" type="text area" placeholder="Enter your Address" />
+                <Form.Text className="text-danger">{error.address}</Form.Text>
+            </Form.Group>
+
+            <Button variant="primary" type="submit">
+                Submit
+            </Button>
+        </Form>
+    </Container>
+);
+}
+export default BasicExample;
